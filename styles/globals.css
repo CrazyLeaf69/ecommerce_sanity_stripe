@@ -764,3 +764,69 @@ margin-top: 160px;
 .unSelectable {
   user-select: none;
 }
+.x-close {
+  all: unset;
+  cursor: pointer;
+}
+.review-container {
+  border-bottom:rgba(0, 0, 0, 0.5) solid 1px;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+.review-user-stars {
+  
+}
+.review-user {
+  font-weight: bold;
+}
+.review-stars {
+  margin-left: 10px;
+  color: #f02d34;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+.review-comment {
+
+}
+.review-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.review-form input {
+  all: unset;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.review-form textarea {
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+/* .star-rating {
+  margin-top: 10px;
+  margin-bottom: 10px;
+} */
+.star-rating button{
+  all: unset;
+  color: gold;
+  font-size: 35px;
+  padding: 4px;
+}
+.write-review {
+  border-radius: 15px;
+  border: none;
+  padding: 8px 10px;
+  text-transform: uppercase;
+  background-color: #f02d34;
+  color: #fff;
+  cursor: pointer;
+    transform: scale(1, 1);
+  transition: transform 0.5s ease;
+}
+.write-review:hover{
+  transform: scale(1.1,1.1);
+}

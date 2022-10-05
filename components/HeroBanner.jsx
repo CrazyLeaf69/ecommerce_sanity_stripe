@@ -3,7 +3,6 @@ import React from 'react'
 import { urlFor } from '../lib/client'
 
 const Herobanner = ( { heroBanner }) => {
-  // console.log(heroBanner);
   return (
     <div className="hero-banner-container">
       <div>
