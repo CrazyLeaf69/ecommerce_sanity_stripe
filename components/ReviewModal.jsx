@@ -31,14 +31,11 @@ const ReviewModal = ({ modalState, closeModal, id, updateReviews }) => {
       comment: t.comment.value,
       stars: rating,
     };
-    const res = await fetch(`/api/review`, {
-      method: "POST",
-      body: JSON.stringify({
-        patch: client.patch,
-        id,
-        newReview,
-      }),
-    });
+    const res = await client
+      .patch(id)
+      .setIfMissing({ reviews: [] })
+      .append("reviews", [newReview])
+      .commit({ autoGenerateArrayKeys: true });
     updateReviews(res);
     closeModal();
   };
