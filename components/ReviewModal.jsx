@@ -34,7 +34,7 @@ const ReviewModal = ({ modalState, closeModal, id, updateReviews }) => {
     const res = await fetch(`/api/review`, {
       method: "POST",
       body: JSON.stringify({
-        client,
+        patch: client.patch,
         id,
         newReview,
       }),
