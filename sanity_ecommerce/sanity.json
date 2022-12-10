@@ -5,7 +5,12 @@
   },
   "api": {
     "projectId": "943y0xmx",
-    "dataset": "production"
+    "dataset": "production",
+    "server": {
+      "headers": {
+        "Access-Control-Allow-Origin": "https://ecommerce-sanity-stripe-black.vercel.app"
+      }
+    }
   },
   "plugins": [
     "@sanity/base",
