@@ -31,13 +31,14 @@ const ReviewModal = ({ modalState, closeModal, id, updateReviews }) => {
       comment: t.comment.value,
       stars: rating,
     };
-    const res = await client
-      .patch(
-        `${id}?apiKey=${"skrYGo6ERATsWBeFJHvCPsCb7rbVB9sydxjpsymrk55zj5SRIDRQqjmPrk489oe8vuXltTE782Iyx9aRdLPluBEXaJdu876hxTgdZKDyGh5hpM1VkhZFpvy1nlrhdLzQEYtEvmIHejdSrkABc7YHTKNLN8mUZbXpdlxlszl6f3RPAmJYnm1T"}`
-      )
-      .setIfMissing({ reviews: [] })
-      .append("reviews", [newReview])
-      .commit({ autoGenerateArrayKeys: true });
+    const res = await fetch(`/api/review`, {
+      method: "POST",
+      body: JSON.stringify({
+        client,
+        id,
+        newReview,
+      }),
+    });
     updateReviews(res);
     closeModal();
   };
