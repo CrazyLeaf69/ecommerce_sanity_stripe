@@ -31,13 +31,31 @@ const ReviewModal = ({ modalState, closeModal, id, updateReviews }) => {
       comment: t.comment.value,
       stars: rating,
     };
-    const res = await client
-      .patch(id)
-      .setIfMissing({ reviews: [] })
-      .append("reviews", [newReview])
-      .commit({ autoGenerateArrayKeys: true });
-    updateReviews(res);
-    closeModal();
+    const query = `
+      mutation {
+        update(id: "document-id") {
+          set {
+            myArray: append(myArray, "new element")
+          }
+        }
+      }
+    `;
+    client
+      .patch(query)
+      .then((result) => {
+        console.log(result);
+        closeModal();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    // const res = await client
+    //   .patch(id)
+    //   .setIfMissing({ reviews: [] })
+    //   .append("reviews", [newReview])
+    //   .commit({ autoGenerateArrayKeys: true });
+    // updateReviews(res);
+    // closeModal();
   };
 
   return (
