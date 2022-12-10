@@ -40,22 +40,14 @@ const ReviewModal = ({ modalState, closeModal, id, updateReviews }) => {
         }
       }
     `;
-    client
-      .patch(query)
-      .then((result) => {
-        console.log(result);
-        closeModal();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    const res = await client.patch(query).commit({ autoGenerateArrayKeys: true });
     // const res = await client
     //   .patch(id)
     //   .setIfMissing({ reviews: [] })
     //   .append("reviews", [newReview])
     //   .commit({ autoGenerateArrayKeys: true });
-    // updateReviews(res);
-    // closeModal();
+    updateReviews(res);
+    closeModal();
   };
 
   return (
