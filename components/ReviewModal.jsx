@@ -3,6 +3,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { BsStarFill, BsStar } from "react-icons/bs";
 import Modal from "react-modal";
 import { client } from "../lib/client";
+import sanity from "../sanity";
 
 const customStyles = {
   content: {
