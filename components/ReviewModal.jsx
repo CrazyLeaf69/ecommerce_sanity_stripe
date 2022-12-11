@@ -32,50 +32,13 @@ const ReviewModal = ({ modalState, closeModal, id, updateReviews }) => {
       comment: t.comment.value,
       stars: rating,
     };
-    try {
-      const document = await sanity.getDocument(id);
-      console.log("Document:", document);
-
-      const updatedDocument = await sanity
-        .patch(id)
-        .setIfMissing({ reviews: [] })
-        .append("reviews", [newReview])
-        .commit({ autoGenerateArrayKeys: true });
-      updateReviews(updatedDocument);
-      closeModal();
-      // setResponse(updatedDocument);
-    } catch (err) {
-      console.log(err);
-      // setResponse({ error: err.message });
-    }
-    // const query = `
-    //   mutation {
-    //     update(id: "${id}") {
-    //       set {
-    //         reviews: append(reviews, ${newReview})
-    //       }
-    //     }
-    //   }
-    // `;
-    // fetch("https://<project>.api.sanity.io/v2021-06-07/data/query/production?query=*", {
-    //   method: "GET",
-    //   headers: {
-    //     "Authorization": "Bearer <token>",
-    //   },
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     // do something with the data
-    //   })
-    //   .catch((error) => {
-    //     // handle errors
-    //   });
-    // const res = await client.patch(query).commit({ autoGenerateArrayKeys: true });
-    // const res = await client
-    //   .patch(id)
-    //   .setIfMissing({ reviews: [] })
-    //   .append("reviews", [newReview])
-    //   .commit({ autoGenerateArrayKeys: true });
+    const updatedDocument = await sanity
+      .patch(id)
+      .setIfMissing({ reviews: [] })
+      .append("reviews", [newReview])
+      .commit({ autoGenerateArrayKeys: true });
+    updateReviews(updatedDocument);
+    closeModal();
   };
 
   return (
