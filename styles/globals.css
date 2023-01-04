@@ -773,9 +773,6 @@ margin-top: 160px;
   padding-bottom: 8px;
   margin-bottom: 8px;
 }
-.review-user-stars {
-  
-}
 .review-user {
   font-weight: bold;
 }
@@ -786,8 +783,8 @@ margin-top: 160px;
   gap: 2px;
   align-items: center;
 }
-.review-comment {
-
+.star-button:hover {
+  cursor: pointer;
 }
 .review-form {
   display: flex;

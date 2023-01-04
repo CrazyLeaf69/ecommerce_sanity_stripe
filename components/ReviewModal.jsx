@@ -61,6 +61,7 @@ const ReviewModal = ({ modalState, closeModal, id, updateReviews }) => {
                   onClick={() => setRating(i)}
                   onMouseEnter={() => setHover(i)}
                   onMouseLeave={() => setHover(rating)}
+                  className="star-button"
                 >
                   {i <= (hover || rating) ? <BsStarFill /> : <BsStar />}
                 </button>
